@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TV Media</string>
+
+    <string name="main_empty">此目录没有可播放内容</string>
+    <string name="main_retry">重试</string>
+    <string name="main_root">根目录</string>
+    <string name="main_settings">设置</string>
+    <string name="main_needs_quark_login">尚未登录夸克网盘，请扫码登录</string>
+
+    <string name="entry_folder">文件夹</string>
+    <string name="entry_size_unknown">—</string>
+
+    <string name="player_error_format">播放失败：%1$s</string>
+    <string name="player_error_decoding">设备无法解码该视频编码（如 H.265/HEVC），请换片源或换播放设备</string>
+
+    <!-- 内置播放器（TV 遥控器语义，无中央按钮） -->
+    <string name="player_back_again_to_exit">再按一次返回退出播放</string>
+    <string name="player_options_title">播放选项</string>
+    <string name="player_section_subtitle">字幕</string>
+    <string name="player_section_audio">音轨</string>
+    <string name="player_subtitle_off">关闭字幕</string>
+    <string name="player_track_unnamed">轨道 %1$d</string>
+    <string name="player_no_tracks">暂无可切换的轨道</string>
+    <string name="player_option_row">%1$s %2$s</string>
+    <string name="player_seek_forward">快进 %1$d 秒</string>
+    <string name="player_seek_backward">快退 %1$d 秒</string>
+    <string name="player_time_unknown">--:--</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_section_player">播放方式</string>
+    <string name="settings_player_builtin">内置播放器</string>
+    <string name="settings_player_builtin_desc">应用内播放；遥控器左右键快退/快进 10 秒，选项键切换字幕与音轨</string>
+    <string name="settings_player_system">系统播放器</string>
+    <string name="settings_player_system_desc">交给外部播放器应用（如 MPV）；自动开启本机预读代理，注入播放所需的凭证</string>
+
+    <string name="settings_hint">两种播放方式都会先由本应用向夸克网盘换取已签名的直链，外部播放器无需任何账号配置即可播放。</string>
+    <string name="settings_account_hint">登录方式是在本机打开夸克网页登录页，用手机扫码。登录的是网页版会话，不会占用「夸克 TV 设备」名额，播放也不受 TV 端限速。退出登录会一并清除本机浏览器里的登录状态。</string>
+    <!-- 选中标记：设置页的选项行与播放页的轨道行共用 -->
+    <string name="mark_selected">●</string>
+    <string name="mark_unselected">○</string>
+
+    <string name="error_no_external_player">未找到可用的外部播放器，已回退到内置播放器</string>
+
+    <string name="proxy_channel_name">播放转发</string>
+    <string name="proxy_notification_title">TV Media 正在为外部播放器转发数据</string>
+    <string name="proxy_notification_text">本机预读代理已开启，播放结束后可关闭</string>
+
+    <!-- 夸克账号 -->
+    <string name="settings_section_account">夸克账号</string>
+    <string name="settings_source_status_logged_in">已登录夸克网盘</string>
+    <string name="settings_source_status_logged_out">未登录，需要扫码</string>
+    <string name="settings_source_login">登录夸克网盘</string>
+    <string name="settings_source_logout">退出登录</string>
+    <string name="settings_source_quark_unavailable">夸克网盘当前不可用，请尝试重新登录</string>
+    <string name="settings_source_plain_storage_warning">注意：设备加密存储不可用，夸克凭证将以未加密方式保存在本机</string>
+
+    <!-- 夸克登录（WebView） -->
+    <string name="quark_login_title">登录夸克网盘</string>
+    <string name="quark_login_hint">登录成功后本页会自动返回。若页面里焦点看不清楚，是因为夸克网页没给焦点做样式 —— app 已强制给它加上蓝色描边。</string>
+    <string name="quark_login_reload">重新加载</string>
+    <string name="quark_login_show_dialog">显示登录二维码</string>
+    <string name="quark_login_status_loading">正在打开夸克登录页…</string>
+    <string name="quark_login_status_waiting">请用手机夸克 App 扫描页面上的二维码（没看到二维码就点「显示登录二维码」）</string>
+    <string name="quark_login_status_verifying">已扫码，正在验证登录状态…</string>
+    <string name="quark_login_success">登录成功</string>
+    <string name="quark_login_webview_unavailable">本机的 WebView 不可用（系统组件缺失或过旧），无法打开登录页</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- TV device: not required, so the same APK also installs on phones/tablets. -->
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:banner="@drawable/banner"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <!--
+          Both categories live on the same activity on purpose:
+            - Android TV launchers only query LEANBACK_LAUNCHER
+            - handheld launchers only query LAUNCHER
+          Removing LAUNCHER makes the app unreachable from a phone/tablet home screen;
+          removing LEANBACK_LAUNCHER makes it unreachable from the TV home screen.
+          The app icon is a proper mipmap adaptive icon so no launcher fails to resolve it.
+        -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.player.PlayerActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
+            android:exported="false"
+            android:theme="@style/AppTheme.Fullscreen" />
+
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_title" />
+
+        <!-- 夸克登录页：WebView 打开 pan.quark.cn，用户扫码后从中抓 cookie。
+             configChanges 避免配置变化导致 WebView 重建、登录页重新加载。 -->
+        <activity
+            android:name=".ui.auth.QuarkLoginActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
+            android:exported="false"
+            android:label="@string/quark_login_title" />
+
+        <!-- Keeps the loopback stream-through proxy alive while an external player is in front. -->
+        <service
+            android:name=".proxy.ProxyForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+    </application>
+
+</manifest>

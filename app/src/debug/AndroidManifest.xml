@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  **只存在于 debug 构建**的探针（不进正式包）。
+
+  用途：在设备上、用 app 自己的凭证，把「真实 CDN 直链」取出来并当场测量它的行为
+  （裸 GET 能不能用、open-ended / 有界 / suffix 各自返回什么）。
+  这是为了回答一个必须实测、不能靠文档的问题：
+  「夸克 CDN 的直链到底需不需要 Cookie/Referer/UA？」
+
+  运行方式：
+    adb shell am instrument -w com.tvmedia.openlist/com.tvmedia.openlist.QuarkProbeInstrumentation
+  结果打在 logcat 的 QuarkProbe 标签下。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <instrumentation
+        android:name="com.tvmedia.openlist.QuarkProbeInstrumentation"
+        android:targetPackage="com.tvmedia.openlist"
+        android:label="tvmedia quark probe" />
+    <instrumentation
+        android:name="com.tvmedia.openlist.ProxyProbeInstrumentation"
+        android:targetPackage="com.tvmedia.openlist"
+        android:label="tvmedia proxy probe" />
+    <instrumentation
+        android:name="com.tvmedia.openlist.PlayerProbeInstrumentation"
+        android:targetPackage="com.tvmedia.openlist"
+        android:label="tvmedia player probe" />
+</manifest>

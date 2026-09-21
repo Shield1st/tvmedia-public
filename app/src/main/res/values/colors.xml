@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF101014</color>
+    <color name="bg_surface">#14FFFFFF</color>
+    <color name="focus_fill">#3D42A5F5</color>
+    <color name="focus_stroke">#FF64B5F6</color>
+    <color name="text_primary">#FFECECEC</color>
+    <color name="text_secondary">#FF9E9E9E</color>
+    <color name="icon_folder">#FFFFCA28</color>
+    <color name="icon_video">#FF4FC3F7</color>
+    <color name="icon_file">#FF757575</color>
+    <color name="accent">#FF42A5F5</color>
+
+    <!-- 播放页覆盖层：左侧选项面板不透明一些（要盖住画面读文字），底部信息条半透明。 -->
+    <color name="bg_overlay_panel">#F2101014</color>
+    <color name="bg_overlay_bar">#B3101014</color>
+    <color name="progress_track">#40FFFFFF</color>
+</resources>

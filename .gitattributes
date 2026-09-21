@@ -1,0 +1,6 @@
+# Normalize line endings so the Gradle wrapper keeps working everywhere.
+* text=auto
+gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary
+*.png binary
